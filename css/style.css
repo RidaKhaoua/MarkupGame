@@ -1,0 +1,181 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Tahoma, sans-serif;
+}
+
+.is-finish {
+  position: absolute;
+  height: 500px;
+  top: 50%;
+  left: 50%;
+  width: 550px;
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 6px;
+  background-color: white;
+  opacity: 1;
+  transition: all 0.5s linear;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.is-finish h2 {
+  margin-bottom: 20px;
+  font-size: 40px;
+}
+
+.is-finish button {
+  padding: 8px 43px;
+  background-color: aquamarine;
+  border: none;
+  border-radius: 6px;
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.is-finish span:nth-of-type(1) {
+  font-size: 25px;
+  margin-bottom: 30px;
+}
+
+.is-finish.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.control-buttons {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-color: rgba(3, 169, 244, 0.9);
+}
+
+.control-buttons span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f44336;
+  color: white;
+  padding: 15px 25px;
+  font-size: 30px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 6px;
+}
+
+.info-container {
+  width: 1080px;
+  margin: 20px auto 0;
+  background-color: #f6f6f6;
+  padding: 20px;
+  overflow: hidden;
+  border: 2px solid #2196f3;
+  font-size: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.memory-game-blocks {
+  display: flex;
+  width: 1100px;
+  flex-wrap: wrap;
+  margin: 20px auto;
+}
+
+.memory-game-blocks.no-clicking {
+  pointer-events: none;
+}
+
+.memory-game-blocks .game-block {
+  height: 200px;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+  flex: 1 0 200px;
+  border: 1px solid;
+  margin: 0 10px 20px;
+}
+
+.memory-game-blocks .game-block .front {
+  background-color: #333;
+  line-height: 200px;
+}
+
+.memory-game-blocks .game-block .front::before {
+  content: "?";
+  position: absolute;
+  color: #fff;
+  font-size: 140px;
+  font-weight: bold;
+}
+
+.memory-game-blocks .game-block .back {
+  background-color: #607d8b;
+  transform: rotateY(180deg);
+}
+
+.memory-game-blocks .game-block .back img {
+  max-width: 100%;
+}
+
+.memory-game-blocks .game-block .face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border: 5px solid #2196f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.memory-game-blocks .game-block.is-flipped,
+.memory-game-blocks .game-block.has-match {
+  transform: rotateY(180deg);
+  pointer-events: none;
+}
+
+/* Start leader Boared */
+.leader-content {
+  width: 1080px;
+  border: 1px solid #2196f3;
+  padding: 30px 3px 0px;
+  margin: 13px auto;
+}
+
+.leader-content .leader-block {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.leader-content > div {
+  text-transform: capitalize;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.leader-block > div > span:not(.user-name) {
+  background-color: #009688;
+  padding: 8px 12px;
+  border: 1px solid black;
+  color: white;
+  border-radius: 6px;
+}
+/* End leader Boared */
